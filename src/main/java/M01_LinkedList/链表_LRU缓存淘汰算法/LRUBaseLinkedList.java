@@ -1,19 +1,19 @@
-package linked.singlelist;
+package M01_LinkedList.链表_LRU缓存淘汰算法;
 
-import java.util.LinkedList;
+import lombok.Data;
 
 /**
  * 基于单链表LRU算法（java）
  *
  * @author Chimm Huang
- * @date 2020/10/22
+ * @date 2022/11/7
  */
 public class LRUBaseLinkedList<E> {
 
     /**
      * 默认链表容量
      */
-    private final static Integer DEFAULT_CAPACITY = 10;
+    private static final Integer DEFAULT_CAPACITY = 10;
 
     /**
      * 头结点
@@ -25,11 +25,12 @@ public class LRUBaseLinkedList<E> {
      * 链表容量
      */
     private transient int capacity = 10;
-
     /**
      * 链表长度
      */
     private int length = 0;
+
+
 
     public LRUBaseLinkedList() {
         this.headNode = new Node<>();
@@ -41,33 +42,10 @@ public class LRUBaseLinkedList<E> {
         this.capacity = capacity;
     }
 
+    @Data
     private static class Node<E> {
-        E element;
-        Node<E> next;
-
-        Node(E element, Node<E> next) {
-            this.element = element;
-            this.next = next;
-        }
-
-        public Node() {
-        }
+        private E element;
+        private Node<E> next;
     }
 
-    public boolean add(E e) {
-        if (capacity == length) {
-            // 当链表表格已经满了的时候，需要删除最前面的元素
-            
-        }
-
-        // 将元素添加到末尾
-
-    }
-
-
-    public static void main(String[] args) {
-        LinkedList<String> linkedList = new LinkedList<>();
-
-        linkedList.add("s");
-    }
 }
