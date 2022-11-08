@@ -1,10 +1,8 @@
-package M01_LinkedList.链表_LRU缓存淘汰算法;
+package M01_链表.LRU缓存淘汰算法;
 
+import M01_链表.Node;
 import com.alibaba.fastjson2.JSON;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.junit.jupiter.api.Test;
 
 /**
  * 基于单链表LRU算法（java）
@@ -44,12 +42,6 @@ public class LRUBaseLinkedList<E> {
     public LRUBaseLinkedList(int capacity) {
         this.headNode = new Node<>();
         this.capacity = capacity;
-    }
-
-    @Data @AllArgsConstructor @NoArgsConstructor
-    private static class Node<E> {
-        private E element;
-        private Node<E> next;
     }
 
     /**
