@@ -30,8 +30,6 @@ public class LRUBaseLinkedList<E> {
      */
     private int length = 0;
 
-
-
     public LRUBaseLinkedList() {
         this.headNode = new Node<>();
         this.length = 0;
@@ -46,6 +44,26 @@ public class LRUBaseLinkedList<E> {
     private static class Node<E> {
         private E element;
         private Node<E> next;
+    }
+
+    /**
+     * 添加元素
+     * 在 哨兵 head 后面添加即可
+     */
+    public void add(E data) {
+        // 如果链表中存在，则先删除，再添加
+
+    }
+
+    /**
+     * 删除下一个节点
+     * @param node
+     */
+    private void removeNext(Node node) {
+        Node next = node.getNext();
+        node.setNext(next == null ? null : next.getNext());
+        next = null;
+        length--;
     }
 
 }
