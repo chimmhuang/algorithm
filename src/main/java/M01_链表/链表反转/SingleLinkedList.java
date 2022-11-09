@@ -22,17 +22,18 @@ public class SingleLinkedList {
                     head → C → B → A
      */
 
-    /*
-    方式二：
-        待反转的链表: head → A → B → C
+    /**
+     方式二：<a href="https://blog.csdn.net/qq_42351880/article/details/88637387">CSDN反转链表</a>
+     <p/>
+         待反转的链表: head → A → B → C
 
-                            head
-                             ↓
-                    null ← A B → C
+                             head
+                              ↓
+                     null ← A B → C
 
-                    null ← A ← B C ← head
+                     null ← A ← B C ← head
 
-                    null ← A ← B ← C ← head
+                     null ← A ← B ← C ← head
      */
     public static <E> Node<E> revert2(Node<E> node) {
         // newNode 的添加顺序为：null ← ... ← head
