@@ -1,6 +1,5 @@
-package M01_链表;
+package M02_链表;
 
-import M01_链表.LRU缓存淘汰算法.LRUBaseLinkedList;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

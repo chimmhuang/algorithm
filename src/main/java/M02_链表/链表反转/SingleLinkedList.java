@@ -1,6 +1,6 @@
-package M01_链表.链表反转;
+package M02_链表.链表反转;
 
-import M01_链表.Node;
+import M02_链表.Node;
 import com.alibaba.fastjson2.JSON;
 
 /**
