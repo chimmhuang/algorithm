@@ -49,8 +49,10 @@ public class LeetCode_92_Medium {
                -----------------------------
              */
             int nodeNum = 1;
-            ListNode sentinel = new ListNode();
-            sentinel.next = head;
+
+            // 哨兵节点
+            ListNode sentinelNode = new ListNode();
+            sentinelNode.next = head;
 
             ListNode preNode = null;
             ListNode leftNode = null;
@@ -73,7 +75,7 @@ public class LeetCode_92_Medium {
                 // remain 节点
                 if (nodeNum == right) {
                     if (preNode == null) {
-                        sentinel.next = currentNode;
+                        sentinelNode.next = currentNode;
                     } else {
                         preNode.next = currentNode;
                     }
@@ -92,7 +94,7 @@ public class LeetCode_92_Medium {
                 currentNextNode = currentNextNextNode;
                 nodeNum++;
             }
-            return sentinel.next;
+            return sentinelNode.next;
         }
 
         class ListNode {
