@@ -35,7 +35,7 @@ public class LeetCode_92_Medium {
                        ↓
                  |S| → A → B → C → D → E
                -----------------------------
-                                   remainNode
+                                 rightNode.next
                                        ↓
                  |S| → A → B → C → D → E
                -----------------------------
@@ -53,7 +53,6 @@ public class LeetCode_92_Medium {
             sentinel.next = head;
 
             ListNode preNode = null;
-            ListNode remainNode = null;
             ListNode leftNode = null;
 
             ListNode currentNode = head;
