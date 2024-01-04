@@ -10,7 +10,7 @@ import java.util.Map;
  * @author Chimm Huang
  * @date 2024/1/4
  */
-public class LeetCode_138_medium {
+public class LeetCode_138_Medium {
 
     /*
        |---|---------|   |---|---------|   |---|---------|   |---|---------|   |---|---------|   |-------------|
