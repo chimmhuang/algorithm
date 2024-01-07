@@ -7,6 +7,8 @@ import lombok.Data;
 /**
  * 基于单链表LRU算法（java）
  *
+ * 这里的实现有一个问题，就是查询元素的时候，时间复杂度为 O(n)
+ *
  * @author Chimm Huang
  * @date 2022/11/7
  */
