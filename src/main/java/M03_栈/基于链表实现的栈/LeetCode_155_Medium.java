@@ -1,8 +1,5 @@
 package M03_栈.基于链表实现的栈;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 /**
  * 力扣155. 最小栈
  *
