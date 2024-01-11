@@ -24,4 +24,58 @@ package M06_二分法;
  * @date 2024/1/10
  */
 public class BinarySearch {
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25};
+        BinarySearch binarySearch = new BinarySearch(arr);
+
+        int findNum = 22;
+        int index = binarySearch.find(findNum);
+        System.out.println("----------------");
+        System.out.println("要查询的数字为：" + findNum);
+        if (index != -1) {
+            System.out.println("查询到的索引为：" + index);
+            System.out.println("索引对应的值为：" + arr[index]);
+        } else {
+            System.out.println("该数组不存在该值");
+        }
+    }
+
+    int[] arr;
+    int lowIndex;
+    int highIndex;
+
+    public BinarySearch(int[] arr) {
+        this.arr = arr;
+        this.lowIndex = 0;
+        this.highIndex = arr.length - 1;
+    }
+
+    public int find(int num) {
+        int findNum = 1;
+        int middleIndex;
+
+        while (true) {
+            middleIndex = (highIndex - lowIndex) / 2 + lowIndex;
+            int middleNum = arr[middleIndex];
+            System.out.println("第" + (findNum++) + "次二分查询");
+            // 如果相等，则直接返回
+            if (middleNum == num) {
+                return middleIndex;
+            }
+            // 如果中间索引已经等于了低位索引，则代表不存在
+            else if (middleIndex == lowIndex && middleIndex == (highIndex - 1)) {
+                System.out.println("未查询到该值");
+                return -1;
+            }
+            // 如果查询的值小于中间值，则调整 高位索引
+            else if (num < middleNum) {
+                highIndex = middleIndex;
+            }
+            // 如果查询的值大于中间值，则调整 低位索引
+            else {
+                lowIndex = middleIndex;
+            }
+        }
+    }
 }
