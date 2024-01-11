@@ -2,6 +2,7 @@ package M06_二分法.搜索旋转排序数组;
 
 /**
  * 力扣33. 搜索旋转排序数组 [中等]
+ * <a href="https://leetcode.cn/problems/search-in-rotated-sorted-array/description/">https://leetcode.cn/problems/search-in-rotated-sorted-array/description/</a>
  *
  * @author Chimm Huang
  * @date 2024/1/11
