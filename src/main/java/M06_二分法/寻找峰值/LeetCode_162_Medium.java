@@ -38,7 +38,7 @@ public class LeetCode_162_Medium {
                 }
 
                 // 中间的值小于他右边的值，证明峰值在右边
-                if (middleNum <= nums[middleIndex + 1]) {
+                if (middleNum < nums[middleIndex + 1]) {
                     lowIndex = middleIndex;
                 }
                 // 中间的值大于他右边的值，证明峰值在左边
