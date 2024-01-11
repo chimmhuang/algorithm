@@ -16,6 +16,10 @@ public class LeetCode_15_Medium {
     class Solution {
         /*
             输入：nums [-1,0,1,2,-1,-4]
+
+            暴力方式为三层for循环遍历。时间复杂度为：O(n³)
+            使用如下方式可以将时间复杂度控制为：O(nlogn) + O(n²)
+
             排序：nums [-4,-1,-1,0,1,2]
 
                          b    s                 e
@@ -38,7 +42,7 @@ public class LeetCode_15_Medium {
             // 先给 nums 排序，时间复杂度 = O(nlogn)
             Arrays.sort(nums);
 
-            // for循环+while循环遍历，时间复杂度= O(n²)
+            // for循环+while循环遍历，时间复杂度= O(n*n/2) = O(n²/2) = O(n²)
             List<List<Integer>> resultList = new ArrayList<>();
             for (int i = 0; i < nums.length; i++) {
                 // 开头重复的值，就不需要再进行判断了
