@@ -6,9 +6,9 @@ package M06_二分法.二分查询的变种;
  * <h2>2：查找最后一个值等同于给定值的元素</h2>
  * <h2>3：查找第一个大于等于给定值的元素</h2>
  * <h2>4：查找最后一个小于等于给定值的元素</h2>
- * <p><img src="https://static001.geekbang.org/resource/image/42/36/4221d02a2e88e9053085920f13f9ce36.jpg?wh=1142*783",width="500" height="350" alt="极客时间-数据结构与算法之美-11排序-冒泡排序"/><p>
+ * <p><img src="https://static001.geekbang.org/resource/image/42/36/4221d02a2e88e9053085920f13f9ce36.jpg?wh=1142*783",width="500" height="350" alt="极客时间-数据结构与算法之美-16二分查找"/><p>
  * <p>比如下面这样一个有序数组，其中，a[5]，a[6]，a[7]的值都等于 8，是重复的数据。我们希望查找第一个等于 8 的数据，也就是下标是 5 的元素。</p>
- * <p><img src="https://static001.geekbang.org/resource/image/50/f8/503c572dd0f9d734b55f1bd12765c4f8.jpg?wh=1142*284",width="500" height="100" alt="极客时间-数据结构与算法之美-11排序-冒泡排序"/><p>
+ * <p><img src="https://static001.geekbang.org/resource/image/50/f8/503c572dd0f9d734b55f1bd12765c4f8.jpg?wh=1142*284",width="500" height="100" alt="极客时间-数据结构与算法之美-16二分查找"/><p>
  *
  * @author Chimm Huang
  * @date 2024/1/11
