@@ -27,11 +27,11 @@ public class LeetCode_33_Medium {
         public int search(int[] nums, int target) {
             int lowIndex = 0;
             int highIndex = nums.length - 1;
+            if (lowIndex == highIndex) {
+                // 只有一位元素
+                return nums[lowIndex] == target ? lowIndex : -1;
+            }
             while (true) {
-                if (lowIndex == highIndex) {
-                    // 只有一位元素
-                    return nums[lowIndex] == target ? lowIndex : -1;
-                }
                 int middleIndex = lowIndex + ((highIndex - lowIndex) >> 1);
                 int middleNum = nums[middleIndex];
                 int lowNum = nums[lowIndex];
@@ -49,10 +49,12 @@ public class LeetCode_33_Medium {
                 else if (target < middleNum) {
                     /*
                         落在第一区间
-                        s[4,5,6,7]m         t=6  6<7 && 6>=4 && 4<7
-                        s[4,5,6,7,0,1]m     t=0  0<1 && 0<=4 && 4>1
+                        s[4,5,6,7]m         t=6  6<7 && 6>4 && 4<7
+                        s[4,5,6,7,0,1]m     t=0  0<1 && 0<4 && 4>1
                      */
-                    if (target >= lowNum || lowNum > middleNum) {
+                    if (target == lowNum) {
+                        return lowIndex;
+                    } else if (target > lowNum || lowNum > middleNum) {
                         highIndex = middleIndex;
                     } else {
                         // 落在第二区间
@@ -63,10 +65,12 @@ public class LeetCode_33_Medium {
                 else {
                     /*
                         落在第二区间
-                        m[0,1,2]e          t=1  1>0 && 1<=2 && 0<2
-                        m[4,5,6,7,0,1,2]e  t=6  6>4 && 6>=2 && 4>2
+                        m[0,1,2]e          t=1  1>0 && 1<2 && 0<2
+                        m[4,5,6,7,0,1,2]e  t=6  6>4 && 6>2 && 4>2
                      */
-                    if (target <= highNum || middleNum > highNum) {
+                    if (target == highNum) {
+                        return highIndex;
+                    } else if (target <= highNum || middleNum > highNum) {
                         lowIndex = middleIndex;
                     } else {
                         // 落在第一区间
