@@ -67,6 +67,9 @@ public class WoodCut {
         }
     }
 
+    /**
+     * 使用二分法，时间复杂度为： O(logn)
+     */
     public int cut(int cutNum) {
         int lowLength = 0;
         int highLength = maxWoodsLength;
