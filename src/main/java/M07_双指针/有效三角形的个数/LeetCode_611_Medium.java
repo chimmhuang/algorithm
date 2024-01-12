@@ -3,7 +3,7 @@ package M07_双指针.有效三角形的个数;
 import java.util.Arrays;
 
 /**
- * 力扣611. 有效三角形的个数
+ * 力扣611. 有效三角形的个数 [中等]
  * <a href="https://leetcode.cn/problems/valid-triangle-number/description/">https://leetcode.cn/problems/valid-triangle-number/description/</a>
  *
  * @author Chimm Huang
