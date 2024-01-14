@@ -1,7 +1,5 @@
 package M07_双指针.接雨水;
 
-import java.math.BigDecimal;
-
 /**
  * 力扣42. 接雨水 [困难]
  *
