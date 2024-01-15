@@ -11,6 +11,31 @@ import java.util.List;
  */
 public class LeetCode_297_Hard {
 
+    public static void main(String[] args) {
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
+
+        node1.left = node2;
+        node1.right = node3;
+
+        node3.left = node4;
+        node3.right = node5;
+
+        node4.left = node6;
+        node4.right = node7;
+
+        Codec codec = new Codec();
+        String serialize = codec.serialize(node1);
+        System.out.println(serialize);
+        TreeNode treeNode = codec.deserialize(serialize);
+        System.out.println(treeNode);
+    }
+
     /**
      * Definition for a binary tree node.
      * public class TreeNode {
@@ -21,31 +46,6 @@ public class LeetCode_297_Hard {
      * }
      */
     public static class Codec {
-
-        public static void main(String[] args) {
-            TreeNode node1 = new TreeNode(1);
-            TreeNode node2 = new TreeNode(2);
-            TreeNode node3 = new TreeNode(3);
-            TreeNode node4 = new TreeNode(4);
-            TreeNode node5 = new TreeNode(5);
-            TreeNode node6 = new TreeNode(6);
-            TreeNode node7 = new TreeNode(7);
-
-            node1.left = node2;
-            node1.right = node3;
-
-            node3.left = node4;
-            node3.right = node5;
-
-            node4.left = node6;
-            node4.right = node7;
-
-            Codec codec = new Codec();
-            String serialize = codec.serialize(node1);
-            System.out.println(serialize);
-            TreeNode treeNode = codec.deserialize(serialize);
-            System.out.println(treeNode);
-        }
 
         /*
             树结构：
@@ -120,9 +120,36 @@ public class LeetCode_297_Hard {
 
 
         /*
-            {1,2,3,null,null,4,5}
+            输入：{1,2,3,null,null,4,5}
 
-            先将字符串转换为数组。
+            先取出树的根节点，并将父节点存入 list：
+                    树： 1            list：[1]
+            第1次遍历，先判断左边节点，再判断左边节点，并节点存入 list，此时，左节点不为空，将其添加到父节点的 left，更改添加节点为右节点  list.index = 0 父节点：1
+               字符串：{1,2,3,null,null,4,5}   树： 1  list:[1,2]
+                         ↑                     2
+
+            第2次遍历，此时，右节点不为空，将其添加到父节点的 right，并将节点存入 list。右节点遍历完毕，开始完善下一个父节点  list.index = 0  父节点：1
+               字符串：{1,2,3,null,null,4,5}   树： 1  list:[1,2,3]
+                           ↑                   2     3
+
+            第3次遍历，此时，左节点为空，判断右节点  list.index = 1  父节点：2
+               字符串：{1,2,3,null,null,4,5}   树： 1  list:[1,2,3]
+                              ↑                2     3
+
+            第4次遍历，此时，右节点为空， 开始完善下一个父节点 list.index = 1 父节点：2
+               字符串：{1,2,3,null,null,4,5}   树： 1  list:[1,2,3]
+                                   ↑           2     3
+
+            第5次遍历，此时，左节点不为空，将其添加到父节点的 left，并将节点存入 list， 开始完善右节点 list.index = 2 父节点：3
+               字符串：{1,2,3,null,null,4,5}   树： 1  list:[1,2,3,4]
+                                       ↑       2     3
+                                                    4
+
+            第6次遍历，此时，右节点不为空，将其添加到父节点的 right，并将节点存入 list， 遍历结束 list.index = 2 父节点：3
+               字符串：{1,2,3,null,null,4,5}   树： 1  list:[1,2,3,4]
+                                         ↑     2     3
+                                                    4 5
+
          */
         public TreeNode deserialize(String data) {
             if (data == null || "".equals(data) || "{}".equals(data)) {
@@ -134,37 +161,37 @@ public class LeetCode_297_Hard {
 
             // 将字符串转为数组
             String[] split = data.split(",");
-            int nodeIndex = 0;
+
+            // 将数组完善为树结构
+            TreeNode root = new TreeNode(Integer.parseInt(split[0]));
             List<TreeNode> nodeList = new ArrayList<>();
+            nodeList.add(root);
 
-            // 添加首节点
-
-            for (int i = 0; i < split.length; i++) {
+            int parentIndex = 0;
+            boolean isLeft = true;
+            for (int i = 1; i < split.length; i++) {
                 String value = split[i];
+
                 if (value.equals("null")) {
-                    nodeList.add(null);
+                    // 如果右节点也为空，则开始完善下一个父节点
+                    if (!isLeft) {
+                        parentIndex++;
+                    }
                 } else {
-                    nodeList.add(new TreeNode(Integer.parseInt(value)));
+                    TreeNode node = new TreeNode(Integer.parseInt(value));
+                    nodeList.add(node);
+                    TreeNode parentNode = nodeList.get(parentIndex);
+                    if (isLeft) {
+                        parentNode.left = node;
+                    } else {
+                        parentNode.right = node;
+                        // 右节点完善后，开始完善下一个节点
+                        parentIndex++;
+                    }
                 }
-            }
 
-            // 将数组转换为树
-            TreeNode root = nodeList.get(0);
-            for (int i = 0; i < nodeList.size(); i++) {
-                TreeNode node = nodeList.get(i);
-                if (node == null) {
-                    continue;
-                }
-                int position = i + 1;
-                int leftPosition = position * 2;
-                int rightPosition = position * 2 + 1;
-
-                if (leftPosition <= nodeList.size()) {
-                    node.left = nodeList.get(leftPosition - 1);
-                }
-                if (rightPosition <= nodeList.size()) {
-                    node.right = nodeList.get(rightPosition - 1);
-                }
+                // 交换左右节点
+                isLeft = !isLeft;
             }
             return root;
         }
