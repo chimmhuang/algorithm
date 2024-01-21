@@ -1,8 +1,10 @@
 package M08_树.中序遍历;
 
-import M04_队列.基于数组实现的队列.ArrayQueue;
-
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Deque;
+import java.util.List;
 
 /**
  * 力扣94. 二叉树的中序遍历 [简单]
