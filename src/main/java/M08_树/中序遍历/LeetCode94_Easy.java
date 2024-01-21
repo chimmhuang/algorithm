@@ -1,7 +1,5 @@
 package M08_树.中序遍历;
 
-import M08_树.前序遍历.LeetCode_144_Easy;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -58,7 +56,7 @@ public class LeetCode94_Easy {
         TreeNode right;
         TreeNode() {}
         TreeNode(int val) { this.val = val; }
-        TreeNode(int val, LeetCode_144_Easy.TreeNode left, LeetCode_144_Easy.TreeNode right) {
+        TreeNode(int val, TreeNode left, TreeNode right) {
             this.val = val;
             this.left = left;
             this.right = right;
