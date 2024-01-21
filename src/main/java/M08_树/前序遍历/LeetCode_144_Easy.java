@@ -30,7 +30,7 @@ public class LeetCode_144_Easy {
     class Solution {
 
         /*
-            前序遍历为：中左右 的顺序
+            中序遍历为：左中右 的顺序
          */
         public List<Integer> preorderTraversal(TreeNode root) {
             if (root == null) {
@@ -53,7 +53,6 @@ public class LeetCode_144_Easy {
             this.preOrder(resultList, treeNode.right);
         }
     }
-
 
      public class TreeNode {
          int val;
