@@ -33,20 +33,20 @@ public class LeetCode94_Easy {
                 return Collections.emptyList();
             }
             List<Integer> resultList = new ArrayList<>();
-            this.preOrder(resultList, root);
+            this.middleOrder(resultList, root);
             return resultList;
         }
 
-        private void preOrder(List<Integer> resultList, TreeNode treeNode) {
+        private void middleOrder(List<Integer> resultList, TreeNode treeNode) {
             if (treeNode == null) {
                 return;
             }
             // 左
-            this.preOrder(resultList, treeNode.left);
+            this.middleOrder(resultList, treeNode.left);
             // 中
             resultList.add(treeNode.val);
             // 右
-            this.preOrder(resultList, treeNode.right);
+            this.middleOrder(resultList, treeNode.right);
         }
     }
 
