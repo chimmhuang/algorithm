@@ -120,9 +120,16 @@ public class HashList<E> {
 
         System.out.println("初始化链表：" + hashList.toString());
 
-        System.out.println(hashList.get(1));
-        System.out.println(hashList.get(11));
-        System.out.println(hashList.get(4));
-        System.out.println(hashList.get(5));
+        hashList.get(1);
+        System.out.println("--------------");
+        hashList.get(2);
+        System.out.println("--------------");
+        hashList.get(11);
+        System.out.println("--------------");
+        hashList.get(3);
+        System.out.println("--------------");
+        hashList.get(4);
+        System.out.println("--------------");
+        hashList.get(5);
     }
 }
