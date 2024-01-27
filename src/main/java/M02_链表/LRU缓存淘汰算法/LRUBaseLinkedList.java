@@ -8,6 +8,7 @@ import lombok.Data;
  * 基于单链表LRU算法（java）
  *
  * 这里的实现有一个问题，就是查询元素的时候，时间复杂度为 O(n)
+ * 我还写了一个 基于散列表+链表的 LRU算法 {@link M09_散列表.LRU缓存淘汰算法.LRUBaseHashList}
  *
  * @author Chimm Huang
  * @date 2022/11/7
