@@ -6,6 +6,7 @@ import java.util.Deque;
 /**
  * 力扣110. 平衡二叉树 [简单]
  * 一棵高度平衡二叉树定义为：一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1 。
+ * <a href="https://leetcode.cn/problems/balanced-binary-tree/description/">https://leetcode.cn/problems/balanced-binary-tree/description/</a>
  *
  * @author Chimm.Huang
  * @date 2024/1/31
