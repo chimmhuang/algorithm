@@ -28,11 +28,16 @@ public class LeetCode_295_Hard {
 
     /*
         看了力扣官方讲解后，自己写一下思路
-        解决这道题，先定义两个优先队列，分别为最小队列和最大队列。最小队列按大→小顺序排列，最大队列按小→大顺序排列 minQueue 大[]小  maxQueue 小[]大
+        解决这道题，先定义两个优先队列，分别为最小队列和最大队列。最小队列按大→小顺序排列，最大队列按小→大顺序排列 minQueue 大[]小 (大顶堆)  maxQueue 小[]大 (小顶堆)
         第1次添加：1  -->   minQueue 大[1]小  maxQueue 小[]大。 打印效果：minQueue.size() > maxQueue.size()。是奇数，弹出多的队列，即：1
         第2次添加：2  -->   minQueue 大[1]小  maxQueue 小[2]大。 打印效果：minQueue.size() = maxQueue.size()。是偶数，弹出多的两边的队列取平均值，即：1.5
         第3次添加：3  -->   minQueue 大[2,1]小  maxQueue 小[3]大。 打印效果：minQueue.size() > maxQueue.size()。是奇数，弹出多的队列，即：2
         第4次添加：0  -->   minQueue 大[1,0]小  maxQueue 小[2,3]大。 打印效果：minQueue.size() = maxQueue.size()。是偶数，弹出多的两边的队列取平均值，即：1.5
+
+        时间复杂度：
+            - addNum  O(logn)，其中 n 为累计添加的数的数量
+            - findMedian  O(1)
+        空间复杂度：O(n)，主要为优先队列的开销
      */
     static class MedianFinder {
         PriorityQueue<Integer> minQueue = new PriorityQueue<>(Comparator.reverseOrder());
