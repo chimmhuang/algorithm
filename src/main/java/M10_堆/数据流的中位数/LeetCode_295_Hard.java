@@ -1,6 +1,5 @@
 package M10_堆.数据流的中位数;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
