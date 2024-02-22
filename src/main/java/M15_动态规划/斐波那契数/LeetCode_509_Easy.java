@@ -3,13 +3,13 @@ package M15_动态规划.斐波那契数;
 import java.math.BigInteger;
 
 /**
- * 力扣LCR126. 斐波那契数 [简单]
- * <a href="https://leetcode.cn/problems/fei-bo-na-qi-shu-lie-lcof/">https://leetcode.cn/problems/fei-bo-na-qi-shu-lie-lcof/</a>
+ * 力扣509. 斐波那契数 [简单]
+ * <a href="https://leetcode.cn/problems/fibonacci-number/description/">https://leetcode.cn/problems/fibonacci-number/description/</a>
  *
  * @author Chimm.Huang
  * @date 2024/2/22
  */
-public class LeetCode_LCR126_Easy {
+public class LeetCode_509_Easy {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
