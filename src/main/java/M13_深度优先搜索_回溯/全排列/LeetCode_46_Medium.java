@@ -1,4 +1,4 @@
-package M13_深度优先搜索.全排列;
+package M13_深度优先搜索_回溯.全排列;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package M13_深度优先搜索.N皇后;
+package M13_深度优先搜索_回溯.N皇后;
 
 import com.alibaba.fastjson2.JSON;
 
