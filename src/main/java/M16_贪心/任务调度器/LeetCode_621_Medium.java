@@ -1,9 +1,6 @@
 package M16_贪心.任务调度器;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.Arrays;
 
 /**
  * 力扣621. 任务调度器 [中等]
@@ -16,7 +13,7 @@ public class LeetCode_621_Medium {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        char[] tasks = new char[]{'A','A','A','B','B','B','C','C','C','D','D','E'};
+        char[] tasks = new char[]{'A', 'B', 'C', 'A'};
         System.out.println(solution.leastInterval(tasks, 2));
     }
 
@@ -37,53 +34,26 @@ public class LeetCode_621_Medium {
         [A][B][C]
         [A][B][D]
         [A][E][ ]
+
+        没有写出来，题解：https://leetcode.cn/problems/task-scheduler/solutions/509866/jian-ming-yi-dong-de-javajie-da-by-lan-s-jfl9/
      */
     static class Solution {
         public int leastInterval(char[] tasks, int n) {
-            Map<Character, Integer> taskMap = new HashMap<>();
-            for (int i = 0; i < tasks.length; i++) {
-                taskMap.put(tasks[i], taskMap.getOrDefault(tasks[i], 0) + 1);
+            int[] buckets = new int[26];
+            for(int i = 0; i < tasks.length; i++){
+                buckets[tasks[i] - 'A']++;
             }
-
-            // 按照大小进行排序
-            List<Map.Entry<Character, Integer>> taskList = taskMap.entrySet().stream()
-                    .sorted((o1, o2) -> o2.getValue() - o1.getValue())
-                    .collect(Collectors.toList());
-
-            // 新建二维数组
-            Character[][] executors = new Character[taskList.get(0).getValue()][tasks.length];
-
-            int N = 0;
-            for (int j = 0; j < executors[0].length && N == 0; j++) {
-                for (int i = 0; i < executors.length && !taskList.isEmpty(); i++) {
-                    Map.Entry<Character, Integer> entry = taskList.get(0);
-                    executors[i][j] = entry.getKey();
-                    entry.setValue(entry.getValue() - 1);
-                    if (entry.getValue() == 0) {
-                        taskList.remove(0);
-                    }
-                    if (taskList.isEmpty()) {
-                        N = j + 1;
-                    }
-                }
+            Arrays.sort(buckets);
+            int maxTimes = buckets[25];
+            int maxCount = 1;
+            for(int i = 25; i >= 1; i--){
+                if(buckets[i] == buckets[i - 1])
+                    maxCount++;
+                else
+                    break;
             }
-
-            // 统计时间
-            int time = 0;
-            int executorNums = 0;
-            for (int i = 0; i < executors.length; i++) {
-                for (int j = 0; j < N; j++) {
-                    if (executorNums == tasks.length) {
-                        return time;
-                    }
-
-                    if (executors[i][j] != null) {
-                        executorNums++;
-                    }
-                    time++;
-                }
-            }
-            return time;
+            int res = (maxTimes - 1) * (n + 1) + maxCount;
+            return Math.max(res, tasks.length);
         }
     }
 }
