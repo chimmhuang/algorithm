@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * 力扣118. 杨辉三角 [简单]
+ *
  * @author Chimm.Huang
  * @date 2024/2/27
  */
